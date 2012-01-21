@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * Install and update hooks for Vantage Page module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function vantage_page_enable() {
+  module_load_include('inc', 'vantage_page', 'includes/setup');
+
+  // Install the page_content field and attach to page nodes.
+  field_create_field(vantage_page_content_field_config());
+  field_create_instance(vantage_page_content_field_instance('node', 'page'));
+  watchdog('vantage_page', 'page_content field created and added to page nodes.');
+
+  // Install the page_content_formatter field and attach to page nodes.
+  field_create_field(vantage_page_content_formatter_field_config());
+  field_create_instance(vantage_page_content_formatter_field_instance('node', 'page'));
+  watchdog('vantage_page', 'page_content_formatter field created and added to page nodes.');
+}

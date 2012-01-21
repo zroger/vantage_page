@@ -1,0 +1,7 @@
+name = Page
+description = Page content type.
+core = 7.x
+package = Vantage
+
+dependencies[] = template_field
+dependencies[] = formatter_field

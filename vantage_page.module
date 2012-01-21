@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * Vantage page module.
+ */
+
+/**
+ * Implements hook_node_info().
+ */
+function vantage_page_node_info() {
+  return array(
+    'page' => array(
+      'name' => t('Page'),
+      'base' => 'node_content',
+      'description' => t('Provides the page content type with template fields.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => t('TODO: Add a help message for this content type.'),
+    ),
+  );
+}
