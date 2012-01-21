@@ -4,4 +4,5 @@ core = 7.x
 package = Vantage
 
 dependencies[] = template_field
+dependencies[] = template_mustache
 dependencies[] = formatter_field

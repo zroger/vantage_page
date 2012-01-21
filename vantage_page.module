@@ -12,10 +12,44 @@ function vantage_page_node_info() {
     'page' => array(
       'name' => t('Page'),
       'base' => 'node_content',
-      'description' => t('Provides the page content type with template fields.'),
+      'description' => t('TODO: Describe this content type. The text will be displayed on the Add new content page.'),
       'has_title' => '1',
       'title_label' => t('Title'),
-      'help' => t('TODO: Add a help message for this content type.'),
+      'help' => t('TODO: This text will be displayed at the top of the page when creating or editing content of this type.'),
     ),
   );
+}
+
+/**
+ * Implements hook_template_api_templates().
+ */
+function vantage_page_template_api_templates() {
+  $templates = array();
+
+  $template_type = new Template;
+  $template_type->disabled = FALSE; /* Edit this to true to make a default template_type disabled initially */
+  $template_type->name = 'vantage_one_column';
+  $template_type->label = 'One column, unstyled';
+  $template_type->tags = array(
+    0 => 'page-template',
+  );
+  $template_type->renderer = 'mustache';
+  $template_type->inputs = array(
+    'content' => array(
+      'label' => 'Content',
+      'type' => 'text_format',
+      'remove' => 0,
+    ),
+  );
+  $template_type->content = '<div class="vantage-one-column">
+  {{{ content }}}
+  </div>';
+  $template_type->attached = array(
+    'js' => '',
+    'css' => '',
+    'libraries' => array(),
+  );
+  $templates[$template_type->name] = $template_type;
+
+  return $templates;
 }
