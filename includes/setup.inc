@@ -98,7 +98,7 @@ function vantage_page_content_formatter_field_instance($entity_type, $bundle) {
       "type" => "formatter_select",
       "weight" => "-3",
     ),
-    "field_name" => "field_content_formatter",
+    "field_name" => "page_content_formatter",
     "entity_type" => $entity_type,
     "bundle" => $bundle,
   );
