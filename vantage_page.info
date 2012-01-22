@@ -6,3 +6,4 @@ package = Vantage
 dependencies[] = template_field
 dependencies[] = template_mustache
 dependencies[] = formatter_field
+dependencies[] = field_group

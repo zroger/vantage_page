@@ -21,10 +21,19 @@ function vantage_page_node_info() {
 }
 
 /**
- * Implements hook_template_api_templates().
+ * Implement hook_ctools_plugin_api().
  */
-function vantage_page_template_api_templates() {
-  $templates = array();
+function vantage_page_ctools_plugin_api($module, $api) {
+  if ($module == 'field_group' && $api == 'field_group') {
+    return array('version' => 1);
+  }
+}
+
+/**
+ * Implementation of hook_default_template()
+ */
+function vantage_page_default_template() {
+  $template_types = array();
 
   $template_type = new Template;
   $template_type->disabled = FALSE; /* Edit this to true to make a default template_type disabled initially */
@@ -49,7 +58,7 @@ function vantage_page_template_api_templates() {
     'css' => '',
     'libraries' => array(),
   );
-  $templates[$template_type->name] = $template_type;
+  $template_types['vantage_one_column'] = $template_type;
 
-  return $templates;
+  return $template_types;
 }
